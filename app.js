@@ -2,15 +2,15 @@ const express = require("express");
 const app = express(); //Recebe o express e cria uma copia do express para a variavel var, agora trata-se da variavel principal.
 
 app.get("/", function(req, res){ //Definiu uma rota
-    res.send("Seja bem-vindo ao app do rodrigo")
+    res.sendFile(__dirname + "/html/index.html"); //Aqui ele esta enviando um arquivo html, e o __dirname é uma variavel global que retorna o diretorio raiz do projeto.
 });
 
 app.get("/sobre", function(req, res){
-    res.send("Bem-vindo ao sobre");
+    res.sendFile(__dirname + "/html/sobre.html"); 
 });
 
 app.get("/blog", function(req, res){
-    res.send("Bem-vindo ao blog");
+    res.sendFile(__dirname + "/html/blog.html");
 });
 //Nessa rota de baixo sera estabelecido um parametro atraves da "/:"
 app.get("/ola/:nome/:cargo", function(req, res){ 
