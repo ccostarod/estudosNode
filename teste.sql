@@ -4,6 +4,8 @@ CREATE TABLE usuarios (
   idade INT
 ); // Criação de tabela
 
+DESCRIBE usuarios; // Descreve a tabela (Estrutura de dados)
+
 INSERT INTO usuarios (nome, email, idade)
 VALUES ('Rodrigo Costa', 'rodrigo@example.com', 19); // Inserção de dados
 
