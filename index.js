@@ -43,6 +43,20 @@ const Post = require("./models/Post")
                 res.send("Houve um erro: " + erro);
             });
         });
+    
+    //rota get para deletar
+        app.get('/deletar/:id', function(req, res){
+            Post.destroy({where: {'id': req.params.id== 0}}).then(function(deletedRecordsCount){
+                if (deletedRecordsCount === 0){
+                    res.send("Essa postagem nao existe")
+                }
+                else{
+                    res.send("Postagem deletada com sucesso")
+                }
+            }).catch(function(erro){
+                res.send("Ocorreu um erro: " + erro)
+            })
+        })
 
 //Iniciar servidor, e deve ser a ultima linha do codigo
     app.listen(8082, function(){
